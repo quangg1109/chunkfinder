@@ -19,13 +19,10 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
-
-    - name: Generate Wrapper & Build
+    - name: Build Mod
       run: |
         gradle wrapper
-        ./gradlew build
+        ./gradlew build --no-daemon
 
     - name: Upload Mod Artifact
       uses: actions/upload-artifact@v4
